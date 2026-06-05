@@ -1,0 +1,6 @@
+NET "clk" LOC = "B8"; # Pin clock osilator 50MHz di Spartan-3E
+NET "reset" LOC = "P11"; # Push button untuk reset
+NET "count<0>" LOC = "P21"; # LED 0 (LSB)
+NET "count<1>" LOC = "P22"; # LED 1
+NET "count<2>" LOC = "P23"; # LED 2
+NET "count<3>" LOC = "P24"; # LED 3 (MSB)
