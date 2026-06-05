@@ -1,0 +1,4 @@
+NET "A" LOC = "N17" | IOSTANDARD = LVCMOS33; # Slide Switch 0
+NET "B" LOC = "H18" | IOSTANDARD = LVCMOS33; # Slide Switch 1
+NET "Sum" LOC = "F12" | IOSTANDARD = LVCMOS33; # LED 0 (Sum)
+NET "Carry" LOC = "E12" | IOSTANDARD = LVCMOS33; # LED 1 (Carry)
