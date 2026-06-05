@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL; -- Dibutuhkan untuk operasi penjumlahan (+)
+entity up_counter is
+Port ( clk : in STD_LOGIC;
+reset : in STD_LOGIC;
+count : out STD_LOGIC_VECTOR (3 downto 0)); -- Array 4 bit
+end up_counter;
+
+architecture Behavioral of up_counter is
+signal temp_count : STD_LOGIC_VECTOR (3 downto 0) := "0000";
+begin
+-- Blok sekuensial aktif saat ada perubahan sinyal clk atau reset
+process(clk, reset)
+begin
+if reset = '1' then
+temp_count <= "0000";
+elsif rising_edge(clk) then -- Aktif pada transisi naik clock
+temp_count <= temp_count + 1;
+end if;
+end process;
+count <= temp_count;
+end Behavioral;
