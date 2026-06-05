@@ -1,0 +1,31 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity tb_counter is
+end tb_counter;
+
+architecture behavior of tb_counter is
+component up_counter
+Port ( clk, reset : in STD_LOGIC;
+count : out STD_LOGIC_VECTOR(3 downto 0));
+end component;
+
+signal clk, reset : STD_LOGIC := '0';
+signal count : STD_LOGIC_VECTOR(3 downto 0);
+
+constant clk_period : time := 20 ns; -- Periode clock 20ns = 50 MHz
+begin
+UUT: up_counter port map (clk => clk, reset => reset,
+count => count);
+-- Pembuatan sinyal clock otomatis
+clk_process: process
+begin
+clk <= '0'; wait for clk_period/2;
+clk <= '1'; wait for clk_period/2;
+end process;
+stim_proc: process
+begin
+reset <= '1'; wait for 50 ns; -- Reset sistem di awal
+reset <= '0'; wait for 500 ns; -- Biarkan counter menghitung
+wait;
+end process;
+end behavior;
